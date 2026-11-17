@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SongForge – AI Music Generator</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>🎵 SongForge</h1>
+    <p class="sub">Describe a song and AI will write and produce it.</p>
+    <p id="credits" class="credits"></p>
+  </header>
+
+  <main>
+    <form id="form" class="card">
+      <div class="tabs" role="tablist">
+        <button type="button" class="tab active" data-mode="simple">Simple</button>
+        <button type="button" class="tab" data-mode="custom">Custom</button>
+      </div>
+
+      <div class="mode simple">
+        <label for="prompt">Song description</label>
+        <textarea id="prompt" rows="4" maxlength="3000"
+          placeholder="An upbeat pop song about acing a final exam, with a catchy chorus"></textarea>
+      </div>
+
+      <div class="mode custom hidden">
+        <label for="title">Title</label>
+        <input id="title" maxlength="80" placeholder="Finals Week Anthem" />
+        <label for="lyrics">Lyrics</label>
+        <textarea id="lyrics" rows="7" maxlength="5000"
+          placeholder="[Verse]&#10;Coffee at midnight, notes on the floor...&#10;[Chorus]&#10;..."></textarea>
+        <div class="row">
+          <div>
+            <label for="vocal">Vocals</label>
+            <select id="vocal">
+              <option value="">Any</option>
+              <option value="f">Female</option>
+              <option value="m">Male</option>
+            </select>
+          </div>
+          <div>
+            <label for="duration">Length (sec)</label>
+            <input id="duration" type="number" min="10" max="360" value="120" />
+          </div>
+        </div>
+      </div>
+
+      <label for="style">Style / genre</label>
+      <input id="style" maxlength="1000" placeholder="pop, synth, energetic, female vocals" />
+      <div class="chips">
+        <button type="button" class="chip">Lo-fi hip hop</button>
+        <button type="button" class="chip">Indie rock</button>
+        <button type="button" class="chip">Synthwave</button>
+        <button type="button" class="chip">Acoustic folk</button>
+        <button type="button" class="chip">Jazz</button>
+        <button type="button" class="chip">Reggaeton</button>
+      </div>
+
+      <div class="row">
+        <div>
+          <label for="model">Model</label>
+          <select id="model">
+            <option value="V6">V6 (best quality)</option>
+            <option value="V6_MINI">V6 Mini (fast)</option>
+            <option value="V6_WILD">V6 Wild (experimental)</option>
+          </select>
+        </div>
+        <label class="check"><input id="instrumental" type="checkbox" /> Instrumental only</label>
+      </div>
+
+      <button id="go" type="submit" class="primary">Generate song</button>
+      <p id="status" class="status" aria-live="polite"></p>
+    </form>
+
+    <section id="results"></section>
+  </main>
+
+  <footer>Powered by SunoAPI.org · Generated files are kept for 14 days, so download anything you want to keep.</footer>
+  <script src="app.js"></script>
+</body>
+</html>
