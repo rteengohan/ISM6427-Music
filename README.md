@@ -15,11 +15,8 @@ A web app where users describe a song (or write their own lyrics) and get AI-gen
 
 1. In Netlify, choose **Add new site → Import an existing project** and pick this repo, on the `main` branch.
 2. Leave the build command empty. `netlify.toml` already sets the publish directory to `public` and the functions directory to `netlify/functions`.
-3. Go to **Site configuration → Environment variables** and add:
-   - `SUNO_API_KEY` = your key from https://sunoapi.org/api-key
-4. Deploy, or redeploy after adding the variable.
-
-> Never commit the API key to this repo.
+3. Deploy. The class-provided API key is already built into `netlify/functions/_suno.mjs`, so you don't need any extra setup.
+   - Optional: set a `SUNO_API_KEY` environment variable in Netlify to use a different key.
 
 ## Using it
 
